@@ -6,10 +6,12 @@ std::random_device seedGenerator;
 std::mt19937 randomEngine(seedGenerator());
 std::uniform_real_distribution<float> distribution(-1.0f, 1.0f);
 
-// デストラクタ
-GameScene::GameScene() {}
+// コンストクラタ
+GameScene::GameScene()
+{
+}
 
-// コンストラクタ
+// デストラクタ
 GameScene::~GameScene() {
 	delete modelPlayer_;
 
@@ -18,6 +20,7 @@ GameScene::~GameScene() {
 	}
 
 	delete gameScore_;
+	delete hitPoint_;
 }
 
 // 初期化
@@ -45,6 +48,8 @@ void GameScene::Initialize() {
 	// 各クラス
 	gameScore_ = new GameScore();
 	gameScore_->Initialize();
+	hitPoint_ = new HitPoint();
+	hitPoint_->Initialize();
 }
 
 // 更新
@@ -64,6 +69,7 @@ void GameScene::Update() {
 		particle->Update();
 	}
 	gameScore_->Update();
+	hitPoint_->Update();
 
 	// デスフラグの立ったパーティクルを削除
 	particles_.remove_if([](Particle* particle) {
@@ -95,6 +101,7 @@ void GameScene::Draw() {
 	Sprite::PreDraw(commandList);
 
 	gameScore_->Draw();
+	hitPoint_->Draw();
 
 	// スプライト描画後処理
 	Sprite::PostDraw();

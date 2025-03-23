@@ -29,8 +29,16 @@ public: // メンバ関数
 
 private:
 	// スプライト
-	Sprite* sprite_ = nullptr;
+	Sprite* sprite_[5] = {};
+
 	// テクスチャハンドル
 	uint32_t textureHandle_ = 0u;
+
+	// スコア
+	int32_t score_ = 0u;
+
+	// サイズ
+	const float sizeX = 32.0f;
+	const float sizeY = 64.0f;
 };
 

@@ -63,6 +63,7 @@ void GameScene::Update() {
 	for (Particle* particle : particles_) {
 		particle->Update();
 	}
+	gameScore_->Update();
 
 	// デスフラグの立ったパーティクルを削除
 	particles_.remove_if([](Particle* particle) {

@@ -2,9 +2,11 @@
 
 #include <KamataEngine.h>
 
+
 #include "Particle.h"
 
 using namespace KamataEngine;
+using namespace MathUtility;
 
 /// <summary>
 /// ゲームシーン
@@ -37,6 +39,7 @@ public: // メンバ関数
 	/// </summary>
 	void Draw();
 
+
 private: // メンバ変数
 	DirectXCommon* dxCommon_ = nullptr;
 	Input* input_ = nullptr;
@@ -56,6 +59,15 @@ private: // メンバ変数
 	Camera camera_;
 
 	// 各クラス
-	Particle* particle_ = nullptr;
+	//Particle* particle_ = nullptr;
+
+	// 敵
+	std::list<Particle*> particles_;
+
+	// パーティクル移動の速さ
+	static inline const float particleSpeed = 0.1f;
+
+	// パーティクル発生
+	void ParticleBorn(Vector3 position);
 };
 

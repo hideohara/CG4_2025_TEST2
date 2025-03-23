@@ -4,6 +4,7 @@
 
 
 #include "Particle.h"
+#include "GameScore.h"
 
 using namespace KamataEngine;
 using namespace MathUtility;
@@ -59,7 +60,7 @@ private: // メンバ変数
 	Camera camera_;
 
 	// 各クラス
-	//Particle* particle_ = nullptr;
+	GameScore* gameScore_ = nullptr;
 
 	// 敵
 	std::list<Particle*> particles_;

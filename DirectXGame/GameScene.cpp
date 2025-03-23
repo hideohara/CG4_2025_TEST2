@@ -16,6 +16,8 @@ GameScene::~GameScene() {
 	for (Particle* particle : particles_) {
 		delete particle;
 	}
+
+	delete gameScore_;
 }
 
 // 初期化
@@ -41,6 +43,8 @@ void GameScene::Initialize() {
 	camera_.Initialize();
 
 	// 各クラス
+	gameScore_ = new GameScore();
+	gameScore_->Initialize();
 }
 
 // 更新
@@ -49,7 +53,7 @@ void GameScene::Update() {
 	// パーティクル発生
 	//if (input_->TriggerKey(DIK_SPACE)) {
 	if (rand()%20 == 0) {
-			// パーティクル発生
+		// パーティクル発生
 		Vector3 position = { distribution(randomEngine), distribution(randomEngine), 0 };
 		position *= 10;
 		ParticleBorn(position);
@@ -85,6 +89,15 @@ void GameScene::Draw() {
 
 	// 3Dオブジェクト描画後処理
 	Model::PostDraw();
+
+	// 前景スプライト描画前処理
+	Sprite::PreDraw(commandList);
+
+	gameScore_->Draw();
+
+	// スプライト描画後処理
+	Sprite::PostDraw();
+
 }
 
 // パーティクル発生

@@ -16,7 +16,7 @@ void GameScore::Initialize()
 
 	// スプライトの生成
 	for (int32_t i = 0; i < 5; i++) {
-		sprite_[i] = Sprite::Create(textureHandle_, { 32.0f*i, 0 });
+		sprite_[i] = Sprite::Create(textureHandle_, { 100.0f + 32.0f*i, 0 });
 	}
 }
 

@@ -21,6 +21,7 @@ GameScene::~GameScene() {
 
 	delete gameScore_;
 	delete hitPoint_;
+	delete shipLeft_;
 }
 
 // 初期化
@@ -50,6 +51,8 @@ void GameScene::Initialize() {
 	gameScore_->Initialize();
 	hitPoint_ = new HitPoint();
 	hitPoint_->Initialize();
+	shipLeft_ = new ShipLeft();
+	shipLeft_->Initialize();
 }
 
 // 更新
@@ -70,6 +73,7 @@ void GameScene::Update() {
 	}
 	gameScore_->Update();
 	hitPoint_->Update();
+	shipLeft_->Update();
 
 	// デスフラグの立ったパーティクルを削除
 	particles_.remove_if([](Particle* particle) {
@@ -102,6 +106,7 @@ void GameScene::Draw() {
 
 	gameScore_->Draw();
 	hitPoint_->Draw();
+	shipLeft_->Draw();
 
 	// スプライト描画後処理
 	Sprite::PostDraw();

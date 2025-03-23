@@ -6,6 +6,7 @@
 #include "Particle.h"
 #include "GameScore.h"
 #include "HitPoint.h"
+#include "ShipLeft.h"
 
 using namespace KamataEngine;
 using namespace MathUtility;
@@ -63,6 +64,7 @@ private: // メンバ変数
 	// 各クラス
 	GameScore* gameScore_ = nullptr;
 	HitPoint* hitPoint_ = nullptr;
+	ShipLeft* shipLeft_ = nullptr;
 
 	// 敵
 	std::list<Particle*> particles_;

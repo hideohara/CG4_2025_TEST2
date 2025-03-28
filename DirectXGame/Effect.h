@@ -4,14 +4,14 @@
 
 using namespace KamataEngine;
 
-class Particle
+class Effect
 {
 public: // メンバ関数
 
 	/// <summary>
 	/// 初期化
 	/// </summary>
-	void Initialize(Model* model, Vector3 position, Vector3 velocity);
+	void Initialize(Model* model, Vector3 position, float rotate, float size);
 
 	/// <summary>
 	/// 毎フレーム処理
@@ -29,7 +29,6 @@ public: // メンバ関数
 	}
 
 private:
-	//Input* input_ = nullptr;
 
 	// ワールド変換データ
 	WorldTransform worldTransform_;
@@ -47,11 +46,12 @@ private:
 	float counter_ = 0.0f;
 
 	// 存続時間（消滅までの時間）<秒>
-	static inline const float kDuration = 1;
+	static inline const float kDuration = 0.5f;
 
 	// 色変更オブジェクト
 	ObjectColor objectColor_;
 	// 色の数値
 	Vector4 color_;
+
 };
 

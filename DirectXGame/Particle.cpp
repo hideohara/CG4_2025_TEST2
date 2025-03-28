@@ -3,19 +3,15 @@
 using namespace MathUtility;
 #include <algorithm>
 
-// デストラクタ
-Particle::~Particle()
-{
-}
 
 // 初期化
-void Particle::Initialize(Model* model, uint32_t textureHandle, Vector3 position, Vector3 velocity)
+void Particle::Initialize(Model* model,Vector3 position, Vector3 velocity)
 {
 	// システム
-	input_ = Input::GetInstance();
+	//input_ = Input::GetInstance();
 
 	// 引数として受け取ったデータをメンバ変数に記録する
-	textureHandle_ = textureHandle;
+	//textureHandle_ = textureHandle;
 	model_ = model;
 	velocity_ = velocity;
 
@@ -66,6 +62,7 @@ void Particle::Update()
 // 描画
 void Particle::Draw(Camera& camera)
 {
+	//model_->
 	//model_->Draw(worldTransform_, camera, textureHandle_);
 	model_->Draw(worldTransform_, camera, &objectColor_);
 }
